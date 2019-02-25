@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:paddingVertical="50dp"
+    android:weightSum="6"
+    tools:context=".Menu">
+
+    <Button
+        android:id="@+id/resourcesID"
+        android:layout_width="333dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/buttonbackground"
+        android:text="Resources"
+        android:textColor="@color/white"
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/EventID"
+        android:layout_width="333dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/buttonbackground"
+        android:text="Events"
+        android:textColor="@color/white"
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/routineID"
+        android:layout_width="333dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:background="@drawable/buttonbackground"
+        android:text="Routine"
+        android:textColor="@color/white"
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/cgpaID"
+        android:layout_width="333dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:background="@drawable/buttonbackground"
+        android:text="CGPA"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/quitID"
+        android:layout_width="363dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/buttonbackground"
+        android:text="quit"
+        android:textColor="@color/red"
+        android:textSize="25dp" />
+
+
+</LinearLayout>
