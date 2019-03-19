@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CGPAcalculator"></activity>
+        <activity android:name=".Event"></activity>
+        <activity android:name=".Routine" />
+        <activity android:name=".CGPAcalculator" />
         <activity android:name=".Menu" />
         <activity android:name=".MainActivity">
             <intent-filter>

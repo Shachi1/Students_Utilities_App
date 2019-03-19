@@ -34,7 +34,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="26dp"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:inputType="numberDecimal"/>
     </LinearLayout>
 
     <LinearLayout
@@ -54,6 +55,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:inputType="numberDecimal"
             android:background="@color/white"/>
     </LinearLayout>
 

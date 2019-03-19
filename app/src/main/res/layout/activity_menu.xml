@@ -8,8 +8,16 @@
     android:orientation="vertical"
     android:gravity="bottom"
     android:paddingVertical="50dp"
-    android:weightSum="6"
     tools:context=".Menu">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="MENU"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
 
     <Button
         android:id="@+id/resourcesID"
@@ -23,7 +31,7 @@
         android:textSize="25dp"/>
 
     <Button
-        android:id="@+id/EventID"
+        android:id="@+id/eventID"
         android:layout_width="333dp"
         android:layout_height="20dp"
         android:layout_gravity="center"
@@ -57,7 +65,7 @@
 
     <Button
         android:id="@+id/quitID"
-        android:layout_width="363dp"
+        android:layout_width="337dp"
         android:layout_height="20dp"
         android:layout_gravity="center"
         android:layout_weight="1"

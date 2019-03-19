@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class Menu extends AppCompatActivity {
 
-    Button cgpaButton;
+    Button cgpaButton, quitButton, routineButton, eventButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +19,31 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Menu.this,CGPAcalculator.class);
+                startActivity(intent);
+            }
+        });
+
+        quitButton = findViewById(R.id.quitID);
+        quitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        routineButton = findViewById(R.id.routineID);
+        routineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this,Routine.class);
+                startActivity(intent);
+            }
+        });
+
+        eventButton = findViewById(R.id.eventID);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this,Event.class);
                 startActivity(intent);
             }
         });
