@@ -18,6 +18,7 @@
         android:textSize="35dp" />
 
     <CalendarView
+        android:id="@+id/calendarID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/aqua">

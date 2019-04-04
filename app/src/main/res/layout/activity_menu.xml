@@ -71,7 +71,7 @@
         android:layout_weight="1"
         android:background="@drawable/buttonbackground"
         android:text="quit"
-        android:textColor="@color/red"
+        android:textColor="@color/white"
         android:textSize="25dp" />
 
 
