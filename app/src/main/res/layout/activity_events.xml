@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".EventActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="EVENT"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/noteID"
+        android:layout_width="350dp"
+        android:layout_height="41dp"
+        android:layout_marginVertical="20dp"
+        android:background="@color/aqua"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:hint="@string/noteHint"/>
+    <TextView
+        android:id="@+id/ii"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@color/white"/>
+
+
+    <CalendarView
+        android:id="@+id/calendarID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/aqua">
+    </CalendarView>
+
+    <Button
+        android:id="@+id/addID"
+        android:layout_width="277dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/buttonbackground"
+        android:text="add  event"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+</LinearLayout>

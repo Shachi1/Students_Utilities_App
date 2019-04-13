@@ -11,11 +11,22 @@
     tools:context=".Resources">
 
     <Button
+        android:id="@+id/browse"
         android:layout_width="333dp"
         android:layout_height="75dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/buttonbackground"
-        android:text="Storage"
+        android:text="Browse"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/add_new"
+        android:layout_width="333dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/buttonbackground"
+        android:text="Add new"
         android:textColor="@color/white"
         android:textSize="25dp" />
 

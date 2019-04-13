@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Student\'s Utilities</string>
     <string name="button">Button</string>
+    <string name="noteHint">      Add your note here......</string>
+
+    <string name="d144">Pohela Boisakh</string>
 </resources>

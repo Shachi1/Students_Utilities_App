@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Resources"></activity>
-        <activity android:name=".Event" />
+        <activity android:name=".EventActivity" />
         <activity android:name=".Routine" />
         <activity android:name=".CGPAcalculator" />
         <activity android:name=".Menu" />
