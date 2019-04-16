@@ -18,12 +18,16 @@ public class Menu extends AppCompatActivity {
         resourceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Menu.this,Resources.class);
+                Intent intent = new Intent(Menu.this,googleDrive.class);
                 startActivity(intent);
 
-//                File TEST = new File(Environment.getExternalStorageDirectory(), "TEST");
-//                TEST.mkdir(); // make directory may want to check return value
-//                String path = TEST.getAbsolutePath();
+
+                //Intent intent = new Intent(Menu.this,Resources.class);
+                //startActivity(intent);
+
+                /*Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("file/*");
+                startActivityForResult(intent, 3);*/
             }
         });
 
