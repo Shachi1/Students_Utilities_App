@@ -1,91 +1,113 @@
 package com.example.mehjabeen.myapplication;
 
-//import android.content.Context;
-//import android.graphics.Color;
-//import android.support.v7.app.ActionBar;
-import android.support.annotation.NonNull;
+import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Pair;
-import android.widget.CalendarView;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
-//import com.github.sundeepk.compactcalendarview.CompactCalendarView;
-//import com.github.sundeepk.compactcalendarview.domain.Event;
-//
-//import java.text.SimpleDateFormat;
-//import java.util.Date;
-//import java.util.Locale;
 
 public class EventActivity extends AppCompatActivity {
 
-
-    CalendarView compactCalendar;
+    private EventDBHelper db;
     EditText etNote;
     TextView tv;
-    boolean isEventPresent = false;
-    public static Pair<String,String> date;
-//    private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
+    Button addEventButton, deleteEventButton, btn_datepicker;
+    String formattedDateText;
+
+    DatePickerDialog datePickerDialog;
+
+    Calendar calToday;
+    Calendar calSelectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        addEventButton = findViewById(R.id.addID);
+        deleteEventButton = findViewById(R.id.deleteID);
+        btn_datepicker = findViewById(R.id.btn_datepicker);
 
-//        final ActionBar actionBar = getSupportActionBar();
-//        actionBar.setDisplayHomeAsUpEnabled(false);
-//        actionBar.setTitle(null);
-//
         etNote = (EditText) findViewById(R.id.noteID);
         tv = (TextView) findViewById(R.id.ii);
+        db = new EventDBHelper(EventActivity.this);
 
-        compactCalendar = (CalendarView) findViewById(R.id.calendarID);
-        compactCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        displayEventsFromDB();
+
+
+        calToday = new GregorianCalendar();
+        calSelectedDate = new GregorianCalendar();
+        calToday.setTime(new Date());
+
+        btn_datepicker.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView compactCalendar, int year, int month, int dayOfMonth) {
-                month=month+1;
-                etNote.setText("");
-                String str = dayOfMonth +""+ month ;
-                String str2 = etNote.getText().toString();
-                date=new Pair <String, String> (str,str2);
-                Toast.makeText(EventActivity.this,"No Event",Toast.LENGTH_LONG).show();
-               // tv.setText(R.string.d144);
+            public void onClick(View v) {
+                datePickerDialog = new DatePickerDialog(
+                        EventActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                calSelectedDate.set(Calendar.YEAR, year);
+                                calSelectedDate.set(Calendar.MONTH, month);
+                                calSelectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                                calSelectedDate.set(Calendar.HOUR, 4);
+                                calSelectedDate.set(Calendar.SECOND, 49);
 
-               // etNote.setText(dayOfMonth);
+                                calToday = calSelectedDate;
+
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
+                                formattedDateText = sdf.format(calSelectedDate.getTime());
+                            }
+                        },
+                        calToday.get(Calendar.YEAR),
+                        calToday.get(Calendar.MONTH),
+                        calToday.get(Calendar.DAY_OF_MONTH)
+                );
+                datePickerDialog.create();
+                datePickerDialog.show();
 
 
             }
         });
 
-//        compactCalendar.setUseThreeLetterAbbreviation(true);
-//
-//
-//        Event ev1 = new Event(Color.RED, 1477040400000L, "Teachers' Professional Day");
-//        compactCalendar.addEvent(ev1);
-//
-//        compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
-//            @Override
-//            public void onDayClick(Date dateClicked) {
-//                Context context = getApplicationContext();
-//
-//                if (dateClicked.toString().compareTo("Fri Oct 21 00:00:00 AST 2016") == 0) {
-//                    Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
-//                }else {
-//                    Toast.makeText(context, "No EventActivity Planned for that day", Toast.LENGTH_SHORT).show();
-//                }
-//
-//
-//            }
-//
-//            @Override
-//            public void onMonthScroll(Date firstDayOfNewMonth) {
-//                actionBar.setTitle(dateFormatMonth.format(firstDayOfNewMonth));
-//            }
-//        });
+        addEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String inputText = etNote.getText().toString();
+                db.insertEvent(formattedDateText+":  "+inputText);
+                displayEventsFromDB();
+                etNote.setText("");
+            }
+        });
+
+        deleteEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.deleteAllEvents();
+                displayEventsFromDB();
+            }
+        });
+    }
+
+    void displayEventsFromDB() {
+        List<EventBean> eventBeanList = db.getAllEvents();
+        String eventNotes = "";
+        for (EventBean eventBean : eventBeanList) {
+            eventNotes =  eventNotes + eventBean.getEventNote() + "\n";
+        }
+        tv.setText(eventNotes);
     }
 }
 

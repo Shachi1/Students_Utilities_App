@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".EventActivity">
 
@@ -26,29 +25,56 @@
         android:textColor="@color/white"
         android:textSize="15dp"
         android:hint="@string/noteHint"/>
-    <TextView
-        android:id="@+id/ii"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:background="@color/white"/>
 
+    <ScrollView
+        android:layout_width="350dp"
+        android:layout_height="250dp">
 
-    <CalendarView
-        android:id="@+id/calendarID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/aqua">
-    </CalendarView>
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/ii"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </ScrollView>
 
-    <Button
-        android:id="@+id/addID"
-        android:layout_width="277dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/buttonbackground"
-        android:text="add  event"
-        android:textColor="@color/white"
-        android:textSize="25dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_datepicker"
+            android:layout_width="87dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonbackground"
+            android:text="pick  date"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/addID"
+            android:layout_width="94dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonbackground"
+            android:text="add  event"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/deleteID"
+            android:layout_width="104dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonbackground"
+            android:text="delete  event"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
 
 </LinearLayout>
